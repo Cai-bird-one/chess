@@ -75,6 +75,16 @@ python -m xiangzero.self_play --games 2 --sims 40 --out data/selfplay.jsonl
 python -m xiangzero.train --data data/selfplay.jsonl --epochs 2 --checkpoint checkpoints/model.pt
 ```
 
+## 可视化自我对弈
+
+把 JSONL 自我对弈数据导出为单文件 HTML：
+
+```bash
+python -m xiangzero.visualize data/replay_128x8.jsonl --out visualizations/replay_128x8.html
+```
+
+然后直接用浏览器打开 `visualizations/replay_128x8.html`，可以逐局面查看棋盘、当前走棋方、最终 value 和 MCTS 访问概率最高的候选着法。
+
 ## 说明
 
 这是一套工程骨架，不是预训练强棋力模型。棋力来自大量自我对弈训练、更多 MCTS 模拟次数、更大的网络和更完善的训练调度。
